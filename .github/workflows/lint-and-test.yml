@@ -11,9 +11,18 @@ on:
         type: boolean
 
 jobs:
+  debug-inputs:
+    name: 🔍 Debug dos Inputs do Dispatch
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "🔧 Valor de run_tests: ${{ inputs.run_tests }}"
+          echo "🔧 Valor de run_lint: ${{ inputs.run_lint }}"
+
   lint:
     name: Lint
-    if: true
+    if: ${{ input.run_lint }}
     runs-on: ubuntu-latest
 
     steps:
@@ -31,7 +40,7 @@ jobs:
 
   test:
     name: Testes
-    if: true
+    if: ${{ input.run_tests }}
     runs-on: ubuntu-latest
 
     steps:
