@@ -1,3 +1,6 @@
+
+![CI Pipeline](https://github.com/gabrielborel/INFNET_DR3_TP1/actions/workflows/ci.yml/badge.svg)
+
 # Devcalc API
 
 Este é um projeto Java simples criado com Maven no IntelliJ IDEA.

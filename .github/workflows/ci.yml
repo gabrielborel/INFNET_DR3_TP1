@@ -21,15 +21,6 @@ on:
         type: boolean
 
 jobs:
-  debug-inputs:
-    name: 🔍 Debug dos Inputs do Dispatch
-    if: github.event_name == 'workflow_dispatch'
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          echo "🔧 Valor de run_tests: ${{ inputs.run_tests }}"
-          echo "🔧 Valor de run_lint: ${{ inputs.run_lint }}"
-
   lint-and-test:
     uses: ./.github/workflows/lint-and-test.yml
     with:
