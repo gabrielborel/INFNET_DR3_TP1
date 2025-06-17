@@ -39,7 +39,7 @@ public final class CalculatorService {
     }
 
     /**
-     * Divide dois inteiros.
+     * Divide dois inteiros, apenas inteiros.
      *
      * @param a o numerador
      * @param b o denominador
