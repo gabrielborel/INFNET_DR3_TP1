@@ -71,14 +71,8 @@ jobs:
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
 
-      - name: Executar análise SonarCloud
-        uses: SonarSource/sonarcloud-github-action@v2
-        with:
-          projectBaseDir: .
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_PROJECT_KEY: gabrielborel_INFNET_DR3_TP1
-          SONAR_ORGANIZATION: gabrielborel
+      - name: Executar análise SonarCloud com Maven
+        run: mvn verify sonar:sonar -Dsonar.projectKey=gabrielborel_INFNET_DR3_TP1 -Dsonar.organization=gabrielborel -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}
 
   package:
     runs-on: ubuntu-latest
