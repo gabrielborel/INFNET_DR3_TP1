@@ -56,7 +56,7 @@ public final class CalculatorService {
     /**
      * Calcula a raiz quadrada de um número inteiro.
      *
-     * @param a o numerador
+     * @param a o número para o qual se deseja calcular a raiz quadrada
      * @return a raiz quadrada de a
      * @throws IllegalArgumentException se a for negativo
      */

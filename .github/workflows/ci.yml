@@ -16,10 +16,12 @@ on:
         description: 'Executar testes?'
         required: true
         type: boolean
+        default: true
       run_lint:
         description: 'Executar lint?'
         required: true
         type: boolean
+        default: true
 
 permissions:
   contents: read
