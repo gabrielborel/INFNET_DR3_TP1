@@ -1,4 +1,4 @@
-# Devcalc
+# Devcalc API
 
 Este é um projeto Java simples criado com Maven no IntelliJ IDEA.
 
