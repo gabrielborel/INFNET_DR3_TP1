@@ -59,6 +59,7 @@ public class Main {
         if (param == null) {
             throw new IllegalArgumentException("Parâmetro '" + paramName + "' é obrigatório\n");
         }
+
         try {
             return Integer.parseInt(param);
         } catch (NumberFormatException e) {

@@ -12,15 +12,12 @@ on:
   workflow_dispatch:
 
 jobs:
-  checkout:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout do código
-        uses: actions/checkout@v4
+  lint-and-test:
+    uses: ./.github/workflows/lint-and-test.yml
 
   build:
     runs-on: ubuntu-latest
-    needs: checkout
+    needs: lint-and-test
     steps:
       - name: Checkout do código
         uses: actions/checkout@v4
@@ -28,13 +25,14 @@ jobs:
       - name: Instalar Java
         uses: actions/setup-java@v4
         with:
-          distribution: 'temurin'
-          java-version: '17'
+          distribution: temurin
+          java-version: 17
 
       - name: Build com Maven
         run: mvn clean install
 
-  test:
+  sonarcloud:
+    name: Análise com SonarCloud
     runs-on: ubuntu-latest
     needs: build
     steps:
@@ -44,25 +42,8 @@ jobs:
       - name: Instalar Java
         uses: actions/setup-java@v4
         with:
-          distribution: 'temurin'
-          java-version: '17'
-
-      - name: Executar testes
-        run: mvn test
-
-  sonarcloud:
-    name: Análise com SonarCloud
-    runs-on: ubuntu-latest
-    needs: test
-    steps:
-      - name: Checkout do código
-        uses: actions/checkout@v4
-
-      - name: Instalar Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '17'
+          distribution: temurin
+          java-version: 17
 
       - name: Cache do SonarCloud
         uses: actions/cache@v4
@@ -92,7 +73,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    needs: [build, test, package]
+    needs: [build, package]
     steps:
       - name: Mensagem de deploy
         run: echo "Deploy realizado com sucesso"
