@@ -62,7 +62,9 @@ public final class CalculatorService {
      */
     public int sqrt(final int a) {
         if (a < 0) {
-            throw new IllegalArgumentException("Cannot calculate square root of a negative number");
+            throw new IllegalArgumentException(
+                    "Cannot calculate square root of a negative number"
+            );
         }
         return (int) Math.sqrt(a);
     }
