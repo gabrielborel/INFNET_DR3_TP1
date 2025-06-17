@@ -19,6 +19,7 @@ public class Main {
                 ctx.status(400).result(e.getMessage());
             }
         });
+
         app.get("/subtract", ctx -> {
             try {
                 int a = getQueryParamAsInt(ctx, "a");
@@ -29,6 +30,7 @@ public class Main {
                 ctx.status(400).result(e.getMessage());;
             }
         });
+
         app.get("/multiply", ctx -> {
            try {
                int a = getQueryParamAsInt(ctx, "a");
@@ -39,6 +41,7 @@ public class Main {
                ctx.status(400).result(e.getMessage());
            }
         });
+
         app.get("/divide", ctx -> {
             int a = getQueryParamAsInt(ctx, "a");
             int b = getQueryParamAsInt(ctx, "b");
