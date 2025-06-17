@@ -50,9 +50,39 @@ jobs:
       - name: Executar testes
         run: mvn test
 
-  package:
+  sonarcloud:
+    name: Análise com SonarCloud
     runs-on: ubuntu-latest
     needs: test
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Instalar Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Cache do SonarCloud
+        uses: actions/cache@v4
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+
+      - name: Executar análise SonarCloud
+        uses: SonarSource/sonarcloud-github-action@v2
+        with:
+          projectBaseDir: .
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_PROJECT_KEY: gabrielborel_INFNET_DR3_TP1
+          SONAR_ORGANIZATION: gabrielborel
+
+  package:
+    runs-on: ubuntu-latest
+    needs: sonarcloud
     steps:
       - name: Checkout do código
         uses: actions/checkout@v4
