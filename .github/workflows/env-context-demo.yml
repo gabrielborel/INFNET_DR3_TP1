@@ -1,0 +1,28 @@
+name: Env Context Demo
+
+on:
+  workflow_dispatch:
+
+env:
+  STAGE: "workflow"
+
+jobs:
+  demo-job:
+    runs-on: ubuntu-latest
+    env:
+      STAGE: "job"
+
+    steps:
+      - name: Mostrar contextos e variáveis no passo 1
+        env:
+          STAGE: "step1"
+        run: |
+          echo "Usuário que acionou: ${{ github.actor }}"
+          echo "Sistema operacional do runner: ${{ runner.os }}"
+          echo "Variável STAGE (step 1): $STAGE"
+
+      - name: Mostrar variáveis no passo 2 (sem variável step)
+        run: |
+          echo "Usuário que acionou: ${{ github.actor }}"
+          echo "Sistema operacional do runner: ${{ runner.os }}"
+          echo "Variável STAGE (step 2): $STAGE"
