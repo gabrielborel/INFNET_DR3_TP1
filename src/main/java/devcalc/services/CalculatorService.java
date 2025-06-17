@@ -52,4 +52,18 @@ public final class CalculatorService {
         }
         return a / b;
     }
+
+    /**
+     * Calcula a raiz quadrada de um número inteiro.
+     *
+     * @param a o numerador
+     * @return a raiz quadrada de a
+     * @throws IllegalArgumentException se a for negativo
+     */
+    public int sqrt(final int a) {
+        if (a < 0) {
+            throw new IllegalArgumentException("Cannot calculate square root of a negative number");
+        }
+        return (int) Math.sqrt(a);
+    }
 }

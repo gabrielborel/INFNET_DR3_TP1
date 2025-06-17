@@ -71,6 +71,16 @@ public final class Main {
                 ctx.status(BAD_REQUEST).result(e.getMessage());
             }
         });
+
+        app.get("/sqrt", ctx -> {
+            int a = getQueryParamAsInt(ctx, "a");
+            try {
+                int result = calculator.sqrt(a);
+                ctx.result("Resultado: " + result + "\n");
+            } catch (IllegalArgumentException e) {
+                ctx.status(BAD_REQUEST).result(e.getMessage());
+            }
+        });
     }
 
     private static int getQueryParamAsInt(

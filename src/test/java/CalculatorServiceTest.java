@@ -57,6 +57,18 @@ public class CalculatorServiceTest {
     }
 
     @Test
+    void testSqrt() {
+        assertEquals(3, calculator.sqrt(9));
+        assertEquals(4, calculator.sqrt(16));
+        assertEquals(5, calculator.sqrt(25));
+        assertEquals(6, calculator.sqrt(36));
+        assertEquals(7, calculator.sqrt(49));
+        assertEquals(8, calculator.sqrt(64));
+        assertEquals(9, calculator.sqrt(81));
+        assertEquals(10, calculator.sqrt(100));
+    }
+
+    @Test
     void testDivideByZero() {
         Exception exception = assertThrows(ArithmeticException.class, () -> {
             calculator.divide(10, 0);
