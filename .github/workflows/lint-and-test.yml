@@ -22,7 +22,7 @@ jobs:
 
   lint:
     name: Lint
-    if: ${{ input.run_lint }}
+    if: ${{ inputs.run_lint }}
     runs-on: ubuntu-latest
 
     steps:
@@ -40,7 +40,7 @@ jobs:
 
   test:
     name: Testes
-    if: ${{ input.run_tests }}
+    if: ${{ inputs.run_tests }}
     runs-on: ubuntu-latest
 
     steps:

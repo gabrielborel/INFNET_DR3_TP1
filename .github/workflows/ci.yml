@@ -33,8 +33,8 @@ jobs:
   lint-and-test:
     uses: ./.github/workflows/lint-and-test.yml
     with:
-      run_tests: ${{ input.run_tests }}
-      run_lint: ${{ input.run_lint }}
+      run_tests: ${{ inputs.run_tests }}
+      run_lint: ${{ inputs.run_lint }}
 
   build:
     runs-on: ubuntu-latest
