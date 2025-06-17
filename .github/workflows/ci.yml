@@ -24,8 +24,8 @@ jobs:
   lint-and-test:
     uses: ./.github/workflows/lint-and-test.yml
     with:
-      run_tests: ${{ inputs.run_tests }}
-      run_lint: ${{ inputs.run_lint }}
+      run_tests: ${{ inputs.run_tests == 'true' }}
+      run_lint: ${{ inputs.run_lint == 'true' }}
 
   build:
     runs-on: ubuntu-latest
