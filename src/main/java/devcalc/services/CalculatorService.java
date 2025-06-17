@@ -6,7 +6,7 @@ package devcalc.services;
 public final class CalculatorService {
 
     /**
-     * Soma dois inteiros.
+     * Soma dois números inteiros.
      *
      * @param a o primeiro número
      * @param b o segundo número
@@ -17,7 +17,7 @@ public final class CalculatorService {
     }
 
     /**
-     * Subtrai dois inteiros.
+     * Subtrai dois números inteiros.
      *
      * @param a o primeiro número
      * @param b o segundo número
@@ -28,7 +28,7 @@ public final class CalculatorService {
     }
 
     /**
-     * Multiplica dois inteiros.
+     * Multiplica dois números inteiros.
      *
      * @param a o primeiro número
      * @param b o segundo número
@@ -39,7 +39,7 @@ public final class CalculatorService {
     }
 
     /**
-     * Divide dois inteiros.
+     * Divide dois números inteiros.
      *
      * @param a o numerador
      * @param b o denominador
